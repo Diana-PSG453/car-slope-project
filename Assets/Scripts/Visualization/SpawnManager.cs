@@ -19,7 +19,7 @@ public class SpawnManager : MonoBehaviour
     }
 
     public void SpawnTriggerEntered(){
-        Debug.Log("Entered Spawn Trigger");
+        //Debug.Log("Entered Spawn Trigger");
         roadSpawner.MoveRoad();
     }
 }

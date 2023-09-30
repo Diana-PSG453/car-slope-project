@@ -18,7 +18,7 @@ public class RoadDetector : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other){
-        Debug.Log("Triggered collider");
+        //Debug.Log("Triggered collider");
         spawnManager.SpawnTriggerEntered();
     }
 }

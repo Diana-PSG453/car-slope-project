@@ -43,7 +43,7 @@ public class RoadSpawner : MonoBehaviour
         
         
         if (lastInclination != inclination && lastInclination == 0f){
-            Debug.Log("A");
+            //Debug.Log("A");
             float newX = roads[roads.Count - 1].transform.position.x + (lengthOfRoad * Mathf.Cos(Mathf.Deg2Rad * inclination));
             float newY = roads[roads.Count - 1].transform.position.y + (lengthOfRoad * Mathf.Sin(Mathf.Deg2Rad * inclination))/2;
             movedRoad.transform.position = new Vector3(newX, newY, 0);
