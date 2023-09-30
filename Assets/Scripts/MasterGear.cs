@@ -12,8 +12,7 @@ using UnityEngine.Animations;
 
 public class MasterGear : SuperGear
 {
-   
-
+    
     void Update()
     {
         
@@ -75,9 +74,6 @@ public class MasterGear : SuperGear
 
 
         } 
-        
-        
-        
-        
     }
 }
+
