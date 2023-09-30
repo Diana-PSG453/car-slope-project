@@ -1417,6 +1417,7 @@ MonoBehaviour:
   - {fileID: 1521136224}
   - {fileID: 703198653}
   - {fileID: 525899576}
+  roadType: 1
   inclination: 5
 --- !u!114 &2094368387
 MonoBehaviour:
