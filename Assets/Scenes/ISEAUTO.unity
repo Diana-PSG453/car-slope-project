@@ -2537,7 +2537,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &889709478
 Transform:
   m_ObjectHideFlags: 0
@@ -4784,6 +4784,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1606834846}
   - component: {fileID: 1606834847}
+  - component: {fileID: 1606834848}
   m_Layer: 0
   m_Name: Interface
   m_TagString: Untagged
@@ -4831,6 +4832,22 @@ MonoBehaviour:
   rightSurface: 0
   torqueL: 0
   torqueR: 0
+--- !u!114 &1606834848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606834845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 135ff453b6bf64dc69114ebdf4237fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  car: {fileID: 180176047}
+  roadTilePrefab: {fileID: 972501094931966126, guid: c0c4292b721de4372987507e3abbff2b,
+    type: 3}
+  dryAsphalt: {fileID: 2100000, guid: d29d75c6038f36d43ae73fc0a58ea690, type: 2}
 --- !u!1 &1616884851
 GameObject:
   m_ObjectHideFlags: 0
@@ -6986,6 +7003,7 @@ GameObject:
   - component: {fileID: 2094368388}
   - component: {fileID: 2094368387}
   - component: {fileID: 2094368386}
+  - component: {fileID: 2094368389}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -7041,6 +7059,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2094368389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094368385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 135ff453b6bf64dc69114ebdf4237fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  car: {fileID: 0}
+  roadTilePrefab: {fileID: 0}
+  dryAsphalt: {fileID: 0}
 --- !u!1 &2124091902
 GameObject:
   m_ObjectHideFlags: 0
