@@ -9,6 +9,7 @@ public class RoadManager : MonoBehaviour
     
     private Queue<GameObject> tileQueue = new Queue<GameObject>();
     private float tileLength = 5f; // Length of each tile
+    [SerializeField] private float inclinationAngle = 0f; // Inclination angle for new tiles
 
     void Start()
     {
@@ -32,18 +33,33 @@ public class RoadManager : MonoBehaviour
         // Implement your mechanism for dynamic inclination here...
     }
 
-    void MoveTiles()
-    {
-        // Dequeue the last tile and destroy it
-        GameObject lastTile = tileQueue.Dequeue();
-        Destroy(lastTile);
+void MoveTiles()
+{
+    // Dequeue the last tile and destroy it
+    GameObject lastTile = tileQueue.Dequeue();
+    Destroy(lastTile);
 
-        // Create and enqueue a new tile
-        GameObject newTile = Instantiate(roadTilePrefab);
-        newTile.transform.position = tileQueue.ToArray()[tileQueue.Count - 1].transform.position + new Vector3(tileLength, 0, 0);
-        newTile.GetComponent<Renderer>().material = dryAsphalt; // Set to default material
-        tileQueue.Enqueue(newTile);
+    // Create and enqueue a new tile
+    GameObject newTile = Instantiate(roadTilePrefab);
+    Vector3 lastTilePosition = tileQueue.ToArray()[tileQueue.Count - 1].transform.position;
+    
+    // Adjust the height (Y-axis) and depth (X-axis) based on the inclination angle
+    float deltaY = tileLength * Mathf.Sin(Mathf.Deg2Rad * inclinationAngle); // Height difference due to inclination
+    float deltaX = tileLength * Mathf.Cos(Mathf.Deg2Rad * inclinationAngle); // Depth difference due to inclination
 
-        // Implement your mechanism to adjust materials and inclination for the new tile here...
-    }
+    // Set the new tile's position to connect seamlessly with the last tile
+    newTile.transform.position = new Vector3(lastTilePosition.x + deltaX, lastTilePosition.y + deltaY, lastTilePosition.z);
+    newTile.GetComponent<Renderer>().material = dryAsphalt; // Set to default material
+    SetInclination(newTile); // Set inclination
+    tileQueue.Enqueue(newTile);
+
+    // Implement your mechanism to adjust materials for the new tile here...
+}
+
+// Function to set inclination angle
+void SetInclination(GameObject tile)
+{
+    tile.transform.Rotate(Vector3.forward * inclinationAngle);
+}
+
 }

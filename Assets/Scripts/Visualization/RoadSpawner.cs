@@ -6,44 +6,65 @@ using UnityEngine;
 public class RoadSpawner : MonoBehaviour
 {
     public List<GameObject> roads;
-    public enum RoadType {Normal, Ice, Wet};
-    public RoadType roadType;
+    private enum RoadType {DryAsphalt, WetAsphalt, Gravel, Snow, Ice};
+    private RoadType roadTypeL;
+    private RoadType roadTypeR;
     private float lengthOfRoad = 5f;
     private float lastInclination = 0f;
-    [SerializeField] public float inclination = 5f;
-    // Start is called before the first frame update
+    [SerializeField] private float inclination = 5f;
+
+    [SerializeField] private RoadType roadType = RoadType.Gravel;
+
+    private Transform roadChild;
+    private Transform alteredPivotChild;
+    private Transform cubeChild;
+
     void Start()
     {
         if(roads != null && roads.Count > 0){
            roads = roads.OrderBy(r => r.transform.position.x).ToList();
         }
+
     }
 
     public void MoveRoad()
     {
-        //GameObject movedRoad;
         GameObject movedRoad = roads[0];
-        /*switch (roadtype)
-        {
-            case RoadType.Normal:
-                movedRoad = normalRoads[0];
-                return;
+        roadChild = transform.Find(roads[0].name);
+        alteredPivotChild = roadChild.Find("Road With Altered Pivot");
+        cubeChild = alteredPivotChild.Find("Cube");
+        ChangeTexture changeTextureScript = cubeChild.GetComponent<ChangeTexture>();
+
+        switch (roadType){
+            case RoadType.Gravel:
+                changeTextureScript.ChangeRoadTexture("Gravel");
+                break;
+
+            case RoadType.Snow:
+                changeTextureScript.ChangeRoadTexture("Snow");
+                break;
 
             case RoadType.Ice:
-                return;
+                changeTextureScript.ChangeRoadTexture("Ice");
+                break;
 
-            case RoadType.Wet:
-                return;
-            
+            case RoadType.WetAsphalt:
+                changeTextureScript.ChangeRoadTexture("WetAsphalt");
+                break;
+
+            case RoadType.DryAsphalt:
+                changeTextureScript.ChangeRoadTexture("DryAsphalt");
+                break;
+
             default:
-                return;
-        }*/
+                break;
+
+        }
+        
 
         roads.Remove(movedRoad);
-        
-        
+
         if (lastInclination != inclination && lastInclination == 0f){
-            //Debug.Log("A");
             float newX = roads[roads.Count - 1].transform.position.x + (lengthOfRoad * Mathf.Cos(Mathf.Deg2Rad * inclination));
             float newY = roads[roads.Count - 1].transform.position.y + (lengthOfRoad * Mathf.Sin(Mathf.Deg2Rad * inclination))/2;
             movedRoad.transform.position = new Vector3(newX, newY, 0);

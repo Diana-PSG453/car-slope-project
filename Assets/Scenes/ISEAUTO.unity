@@ -1483,6 +1483,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7663297220818773119, guid: c0c4292b721de4372987507e3abbff2b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0c4292b721de4372987507e3abbff2b, type: 3}
 --- !u!1 &525899576 stripped
@@ -2537,7 +2542,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &889709478
 Transform:
   m_ObjectHideFlags: 0
@@ -4784,7 +4789,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1606834846}
   - component: {fileID: 1606834847}
-  - component: {fileID: 1606834848}
   m_Layer: 0
   m_Name: Interface
   m_TagString: Untagged
@@ -4832,22 +4836,6 @@ MonoBehaviour:
   rightSurface: 0
   torqueL: 0
   torqueR: 0
---- !u!114 &1606834848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1606834845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 135ff453b6bf64dc69114ebdf4237fe6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  car: {fileID: 180176047}
-  roadTilePrefab: {fileID: 972501094931966126, guid: c0c4292b721de4372987507e3abbff2b,
-    type: 3}
-  dryAsphalt: {fileID: 2100000, guid: d29d75c6038f36d43ae73fc0a58ea690, type: 2}
 --- !u!1 &1616884851
 GameObject:
   m_ObjectHideFlags: 0
@@ -7003,7 +6991,6 @@ GameObject:
   - component: {fileID: 2094368388}
   - component: {fileID: 2094368387}
   - component: {fileID: 2094368386}
-  - component: {fileID: 2094368389}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -7031,7 +7018,8 @@ MonoBehaviour:
   - {fileID: 1521136224}
   - {fileID: 703198653}
   - {fileID: 525899576}
-  roadType: 1
+  roadTypeL: 0
+  roadTypeR: 0
   inclination: 0
 --- !u!114 &2094368387
 MonoBehaviour:
@@ -7059,21 +7047,101 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2094368389
-MonoBehaviour:
+--- !u!1 &2105085201
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2094368385}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2105085205}
+  - component: {fileID: 2105085204}
+  - component: {fileID: 2105085203}
+  - component: {fileID: 2105085202}
+  m_Layer: 0
+  m_Name: Road
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &2105085202
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105085201}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 135ff453b6bf64dc69114ebdf4237fe6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  car: {fileID: 0}
-  roadTilePrefab: {fileID: 0}
-  dryAsphalt: {fileID: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &2105085203
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105085201}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &2105085204
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105085201}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &2105085205
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105085201}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.722, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 0.01, z: 5}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2124091902
 GameObject:
   m_ObjectHideFlags: 0
@@ -8388,6 +8456,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7663297220818773117, guid: c0c4292b721de4372987507e3abbff2b,
+        type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0c4292b721de4372987507e3abbff2b, type: 3}
