@@ -5,6 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - SpawnTrigger
+  - DryAsphalt
+  - WetAsphalt
+  - Gravel
+  - Snow
+  - Ice
+  - RightDetector
+  - LeftDetector
   layers:
   - Default
   - TransparentFX

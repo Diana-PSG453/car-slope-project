@@ -1,0 +1,4 @@
+repository "car-slope-project-NEW@vitamin4blender@cloud"
+  path "/"
+    br "/main"
+    co "/main"
